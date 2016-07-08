@@ -7,7 +7,7 @@
 #
 param
 (
-	[Parameter(Mandatory=$True)] [string]$AssemblyVersion, 
+	[Parameter(Mandatory=$True)] [string]$AssemblyVersion
 )
 
 # write parameters
@@ -31,7 +31,6 @@ $dr = $dayi + $revision
 
 # parse the assembly version numbers based on expected template
 $assemblyVersion = $AssemblyVersion.Replace("C", $ym).Replace("D", $dr)
-$assemblyFileVersion = $AssemblyFileVersion.Replace("C", $ym).Replace("D", $dr)
 
 # write determined numbers
 Write-Host("  Determined Assembly Version : ["+$assemblyVersion+"]")
