@@ -49,6 +49,9 @@ foreach ($file in $AllVersionFiles)
 
 	get-content $file.FullName | 
 	%{$_ -replace 'AssemblyVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)', "AssemblyVersion(""$AssemblyVersion"")" }  > $tmpFile 
+	
+	get-content $file.FullName | 
+	%{$_ -replace 'AssemblyFileVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)', "AssemblyFileVersion(""$AssemblyVersion"")" }  > $tmpFile 
  
 	move-item $TmpFile $file.FullName -force
 }
